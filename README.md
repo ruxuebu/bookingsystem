@@ -1,3 +1,2 @@
-# bookingsystem
-Author: Ruxue Bu
-Author: Shangqi Yang
+Project:bookingsystem
+Author: Ruxue Bu,Shangqi Yang,Tianpei Luo
