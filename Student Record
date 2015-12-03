@@ -32,12 +32,12 @@ int main() {
 	int i;
 	    cout <<"**********************Booking system **************************" << endl;
 	do {
-		cout << "1.Display the Schedul                  2.Booking for the appointmen" << endl;
+		cout << "1.Display the Schedule                 2.Booking an appointment" << endl;
 		cout << "3.Cancel the appointment               0.Exit the booking system" << endl;
 		cout << "  ****************************************************************************" << endl;
 		cout << "Please inputs the number:" << endl;
 		cin >> i;
-		if (i<0 ||i>7) i = 0;
+		if (i<0 ||i>3) i = 0;
 		switch (i)
 		{
 		case 1: a.diplay();
