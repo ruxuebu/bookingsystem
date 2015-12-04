@@ -20,9 +20,9 @@ public:
 			while (getline(ss, a, '\t')) {
 				cout << a << endl;
 				if (p) {
-					b = a;
-					p = false;         //p=!p;
+					b=a;
 				}
+				p=!p;
 				id_password[b] = a; 
 			}
 		}
