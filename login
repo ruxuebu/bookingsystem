@@ -8,6 +8,9 @@ using namespace std;
 class login {
 private:
 	map<string, string>id_password;
+		bool id_temp = false;
+		bool pass_temp = false;
+		bool Teacher = false;
 public:
 	login() {
 		ifstream file("login.txt");
@@ -33,10 +36,6 @@ public:
 	}
 
 	void search(const string& id, const string& password) {
-		bool id_temp = false;
-		bool pass_temp = false;
-		bool Teacher = false;
-
 		for (map<string, string>::iterator it = id_password.begin(); it != id_password.end(); it++) {
 			if (id == it->first) {
 				id_temp = true;
@@ -49,26 +48,37 @@ public:
 			}
 		}
 
-		if (id_temp&&pass_temp) {
-			if (Teacher) {
-				cout << "Welcome Prof" << endl;
+	}
+	void Login_temp() {
+		while (true) {
+			string a, b;
+			cout << "Please enter your id:";
+			cin >> a;
+			cout << "Please enter your password:";
+			cin >> b;
+			cin.sync();
+			search(a, b);
+			if (id_temp&&pass_temp) {
+				if (Teacher) {
+					cout << "Welcome Prof" << endl;
+					break;
+				}
+				else {
+					cout << "Welcome student!!" << endl;
+					break;
+				}
 			}
 			else {
-				cout << "Welcome student!!" << endl;
+				cout << "your id or password is wrong! Please try again!!" << endl;
 			}
-		}else{ 
-			cout << "your id or password is wrong!" << endl; }
+		}
+
 	}
 };
 
 
 int main() {
 	login login;
-	string a,b;
-	cout << "Please enter your id:";
-	cin >> a;
-	cout << "Please enter your password:";
-	cin >> b;
-	login.search(a, b);
+	login.Login_temp();
 	return 0;
 }
