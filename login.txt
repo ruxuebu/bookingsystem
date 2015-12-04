@@ -1,5 +1,6 @@
-0001 password1
-0002 password2
-0003 password3
-0004 password4
-0005 password5
+0001 password1 1
+0002 password2 1
+0003 password3 1
+0004 password4 1
+0005 password5 1
+0000 admin 0
