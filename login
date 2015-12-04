@@ -21,9 +21,9 @@ public:
 				cout << a << endl;
 				if (p) {
 					b = a;
-					p = false;
+					p = false;         //p=!p;
 				}
-				id_password[b] = a;
+				id_password[b] = a; 
 			}
 		}
 		file.close();
