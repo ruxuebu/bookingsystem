@@ -8,7 +8,8 @@ public:
 			ifstream in;
 			in.open("outfile.dat");
 			if (!in) {
-				cout << "file open fail!!" << endl;
+				cout << "The professor have not set up the schedule!" << endl;
+				return -1;
 			}
 			string line;
 			while (getline(in, line)) {
@@ -58,9 +59,10 @@ public:
 	void readin() {
 		ofstream out;
 		out.open("outfile.dat");
-		/*if (!out) {
+		if (!out) {
 		cout << "file open fail!!" << endl;
-		}*/
+		return -1;
+		}
 		for (unordered_map<string, temp*>::iterator it = app.begin(); it != app.end(); it++) {
 			out << it->first << "\t" << (it->second)->time << "\t" << (it->second)->flag << "\n";
 		}
