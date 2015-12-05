@@ -60,7 +60,7 @@ public:
 		ifstream in;
 		in.open("outfile.dat");
 		if (!in) {
-			cout << "Teacher have not set up yet!!" << endl;
+			cout << "Professor,you have not set up yet!!" << endl;
 			return -1;
 		}
 		string line;
