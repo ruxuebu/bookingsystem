@@ -97,9 +97,6 @@ public:
 	void readin() {
 		ofstream out;
 		out.open("outfile.dat");
-		/*if (!out) {
-			cout << "file open fail!!" << endl;
-		}*/
 		for (unordered_map<string, temp*>::iterator it = app.begin(); it != app.end(); it++) {
 			out << it->first << "\t" << (it->second)->time << "\t" << (it->second)->flag<< "\n";
 		}
