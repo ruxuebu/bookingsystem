@@ -26,7 +26,7 @@ public:
 			cout << "student_id:" << it->first << '\t' << "password:" << it->second << endl;
 		}*/
 	}
-	//match the input id and password in the map 
+	//match the input id and password with data which stored in map 
 	void search(const string& id, const string& password) {
 		bool id_temp = false;
 		bool pass_temp = false;
@@ -42,7 +42,7 @@ public:
 					}
 				}
 			}
-			//Judge whether the individual is profressor or the student. 
+			//Judge whether the individual is profressor or student, then making or cancelling an appointment
 			if (id_temp&&pass_temp) {
 				if (Teacher) {
 					cout << "Welcome Prof" << endl;
