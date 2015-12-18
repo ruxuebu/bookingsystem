@@ -1,0 +1,135 @@
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <map>
+#include <sstream>
+using namespace std;
+
+int inttostring(const string& s){
+	stringstream ss;
+	int a;
+	ss << s;
+	ss >> a;
+	return a;
+}
+class temp {
+public:
+	string weekday1;
+	string time;
+	int studentID;	
+	int flag;
+};
+class professor {
+	map<int,temp*>app;
+public:
+	professor() {};
+	void setup() {
+		int i;
+		cout << "1.Monday                 2.Tuesday" << endl;
+		cout << "3.Wednesday              4.Thursday" << endl;
+		cout << "5.Friday                 6.Saturday" << endl;
+		cout << "7.Sunday                 8.Check information" << endl;
+		cout << "0.Exit setup                         " << endl;
+		do {
+			cin >> i;
+			int index = 2;
+			if (i < 0 || i>8) i = 0;
+			switch (i)
+			{
+			case 1: setupdate("Monday", index);
+				break;
+			case 2: setupdate("Tuesday", index);
+				break;
+			case 3:setupdate("Wednesday", index);
+				break;
+			case 4:setupdate("Thursday", index);
+				break;
+			case 5:setupdate("Friday", index);
+				break;
+			case 6:setupdate("Saturday", index);
+				break;
+			case 7:setupdate("Sunday", index);
+				break;
+			case 8:check();
+				break;
+			case 0:
+				break;
+			}
+			index++;
+		} while (i != 0);
+	cout << "end up !" << endl;
+	}
+	void setupdate(const string& weekday, int& index) {
+		string a;
+		cout << weekday << endl;
+		cout << "Please input the time for " << weekday << endl;
+		cin >> a;
+		temp* tp = new temp();
+		tp->weekday1 = weekday;
+		tp->time = a;
+		tp->flag = 0;
+		tp->studentID = 0;
+		app[index] = tp;
+		index++;
+	}
+	void display() {
+		for (map<int, temp*>::iterator it = app.begin(); it != app.end(); it++) {
+			cout << it->first << "   " << (it->second)->weekday1 << "   " << (it->second)->time << "   " << (it->second)->studentID;
+			if ((it->second)->flag) {
+						cout<< "     " << "booking is not available!" << endl;
+					}
+					else {
+						cout<<"      "<<"booking is available!" << endl;
+					}
+		}
+	}
+	void readin() {
+		ofstream out;
+		out.open("outfile.dat");
+		if (!out) {
+			cout << "file open fail!!" << endl;
+		}
+		for (map<int, temp*>::iterator it = app.begin(); it != app.end(); it++) {
+			out << it->first << " " << (it->second)->weekday1 << " " << (it->second)->time << " " << (it->second)->studentID << " " << (it->second)->flag<< "\n";
+		}
+	}
+	void check(){
+		ifstream outfile("data.dat");
+		string line, str;
+		string a[5];
+		while (getline(outfile, line)) 
+		{
+			istringstream stream(line);
+			for(int i = 0; stream >> str && i < 5; i++){
+				a[i] = str.c_str();
+			}
+			temp* tp = new temp();
+			int j = inttostring(a[0]);
+			int d = inttostring(a[3]);
+			int k = inttostring(a[4]);
+			tp->weekday1 = a[1];
+			tp->time = a[2];
+			tp->studentID = d;
+			tp->flag = k;
+			app[j] = tp;
+		}
+		for (map<int, temp*>::iterator it = app.begin(); it != app.end(); it++) {
+			cout << it->first << "   " << (it->second)->weekday1 << "   " << (it->second)->time << "   " << (it->second)->studentID;
+			if ((it->second)->flag) {
+						cout<< "     " << "Registered!" << endl;
+					}
+					else {
+						cout<<"      "<<"Unregistered!" << endl;
+					}
+		}
+	}
+
+};
+
+int main() {
+	professor a;
+	a.setup();
+	a.display();
+	a.readin();
+	return 0;
+}
