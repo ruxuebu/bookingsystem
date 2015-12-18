@@ -1,7 +1,0 @@
-0000 admin
-0001 password1 
-0002 password2 
-0003 password3 
-0004 password4 
-0005 password5 
-
