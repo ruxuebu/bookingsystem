@@ -2,6 +2,7 @@
 # bookingsystem
 =======
 Project:bookingsystem
+
 Author: Ruxue Bu,Shangqi Yang,Tianpei Luo
 
 The booking system is to help professor and students to manage appointments. we used  sqlite for database and we designed the interface by QT creator.
