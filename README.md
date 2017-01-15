@@ -1,13 +1,13 @@
-<<<<<<< HEAD
-# bookingsystem
+Booking System
 =======
 Project:bookingsystem
 
 Author: Ruxue Bu,Shangqi Yang,Tianpei Luo
 
+To see the output,run the sqlite_login.pro by QT creator.
+
 The booking system is to help professor and students to manage appointments. we used  sqlite for database and we designed the interface by QT creator.
 
-To see the output,run the sqlite_login.pro by QT creator.
 
 classes:
 
