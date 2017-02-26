@@ -39,3 +39,4 @@ for students to change password
 store appointment data
 >>>>>>> origin/master
 
+Author: Shangqi Yang
